@@ -21,10 +21,10 @@ public class ProductController {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello World";
+        return "Hello Madafaka";
     }
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
@@ -33,5 +33,10 @@ public class ProductController {
     public Product getProductById(@PathVariable int id){
         Product product = productService.getProductById(id);
         return product;
+    }
+
+    @PostMapping("/products")
+    public void addProduct(@RequestBody Product product){
+        productService.addProduct(product);
     }
 }
