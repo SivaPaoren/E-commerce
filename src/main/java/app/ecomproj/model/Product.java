@@ -1,5 +1,6 @@
 package app.ecomproj.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,10 +17,18 @@ public class Product {
     private double price;
     private String category;
 
-    @Column(name = "release_date")
+
     private Date releaseDate;
     private boolean available;
     private int quantity;
+
+    private String imageName;
+    private String imageType;
+
+    @Lob
+    private byte[]  image;
+
+
 
     public Product() {
     }
@@ -108,4 +117,27 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }
